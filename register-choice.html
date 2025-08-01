@@ -1,38 +1,533 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>個別相談 | ふんわり米粉パン教室</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個別相談 | ふんわり米粉パン教室</title>
+    <style>
+        .banner-full {
+           width: 100%;
+           height: auto;
+           display: block;
+           object-fit: cover;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #fefefe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #f5f2e9 0%, #e8e4d9 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e8e4d9 0%, #d4c8b8 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8b7355;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .header-title {
+            font-size: 1.4rem;
+            color: #6b5b47;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            margin: 0;
+        }
+
+        .nav-menu a {
+            color: #6b5b47;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-menu a:hover {
+            color: #8b7355;
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* バナーセクション */
+        .banner-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .banner-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .banner-fallback {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .banner-fallback h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .banner-fallback p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* デバイス判定メッセージ */
+        .device-message {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .device-message h2 {
+            color: #6b5b47;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .device-message p {
+            color: #8b7355;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* LINE用のスタイル */
+        .line-section {
+            background: #00C300;
+            color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .line-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .line-section p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .line-button {
+            display: inline-block;
+            background: white;
+            color: #00C300;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .line-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .line-qr {
+            margin-top: 25px;
+        }
+
+        .line-qr img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: white;
+            padding: 10px;
+        }
+
+        /* フォーム用のスタイル */
+        .form-section {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .form-section h3 {
+            color: #6b5b47;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-section p {
+            color: #8b7355;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* カスタムフォームスタイル */
+        .custom-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #6b5b47;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e8e4d9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8b7355;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            display: block;
+            margin: 30px auto 0;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Google フォーム iframe スタイル */
+        .google-form-container {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.2rem;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .main-content {
+                padding: 30px 15px;
+            }
+
+            .banner-fallback {
+                padding: 40px 25px;
+            }
+
+            .banner-fallback h1 {
+                font-size: 1.8rem;
+            }
+
+            .banner-fallback p {
+                font-size: 1.1rem;
+            }
+
+            .device-message,
+            .line-section,
+            .form-section {
+                padding: 25px 20px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">[ロゴ]</div>
+                    <h1 class="header-title">ふんわり米粉パン教室</h1>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="#features">特徴</a></li>
+                        <li><a href="#instructor">講師紹介</a></li>
+                        <li><a href="#testimonials">受講者の声</a></li>
+                        <li><a href="#trial-lesson">体験レッスン</a></li>
+                        <li><a href="#faq">よくある質問</a></li>
+                        <li><a href="#consult">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <!-- 共通ヘッダーの読み込み -->
-  <div id="header-placeholder"></div>
-  <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-placeholder").innerHTML = data;
-      });
-  </script>
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <!-- バナーセクション -->
+        <section class="banner-section">
+          <img src="個別相談バナー.png" alt="個別相談バナー" class="banner-full">
+      </section>
+                  <!-- 画像が読み込めない場合のフォールバック -->
+            
 
-  <!-- バナー -->
-  <div class="banner">
-    <img src="個別相談バナー.png" alt="個別相談バナー" style="width: 100%; max-width: 800px; margin: 30px auto; display: block; border-radius: 12px;" />
-  </div>
+        <!-- デバイス判定とコンテンツ表示 -->
+        <div id="content-area">
+            <!-- JavaScriptで動的に内容を変更 -->
+        </div>
+    </main>
 
-  <!-- Googleフォーム -->
-  <div class="form-section" style="max-width: 800px; margin: 0 auto 40px; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true" width="100%" height="1200px" frameborder="0">読み込んでいます…</iframe>
-  </div>
+    <script>
+        // デバイス判定関数
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   window.innerWidth <= 768;
+        }
 
-  <!-- LINE QRコード -->
-  <div style="text-align: center; margin-bottom: 50px;">
-    <h2>LINE公式アカウントもあります</h2>
-    <img src="line-qr.png" alt="LINE QRコード" style="width: 200px; margin-top: 20px;" />
-  </div>
+        // コンテンツを動的に生成
+        function loadContent() {
+            const contentArea = document.getElementById('content-area');
+            
+            if (isMobileDevice()) {
+                // スマートフォン用：LINE誘導
+                contentArea.innerHTML = `
+                    <div class="device-message">
+                        <h2>📱 スマートフォンでのご利用</h2>
+                        <p>スマートフォンからはLINE公式アカウントでの個別相談が便利です！<br>
+                        お気軽にメッセージをお送りください。</p>
+                    </div>
+                    
+                    <div class="line-section">
+                        <h3>LINE公式アカウント</h3>
+                        <p>LINEで簡単に個別相談ができます</p>
+                        <a href="https://lin.ee/kz9Mt1S" class="line-button" target="_blank" rel="noopener noreferrer">
+                            LINEで相談する
+                        </a>
+                        <div class="line-qr">
+                            <p style="margin-bottom: 15px; font-size: 0.9rem;">QRコードからも追加できます</p>
+                            <div style="width: 200px; height: 200px; background: white; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; color: #666;">
+                                QRコード<br>（画像準備中）
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // PC用：フォーム表示
+                contentArea.innerHTML = `
+                    <div class="device-message">
+                        <p>PCからは下記のフォームにご入力いただき、個別相談をお申し込みください。<br>
+                        ご入力いただいた内容を元に、24時間以内にご連絡いたします。</p>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>個別相談お申し込みフォーム</h3>
+                        <p>必要事項をご入力の上、送信ボタンを押してください。<br>
+                        ご相談内容やご希望に合わせて、最適なプランをご提案いたします。</p>
+                        
+                        <form class="custom-form" id="consultForm">
+                            <div class="form-group">
+                                <label for="name">お名前 <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">メールアドレス <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">電話番号</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="age">年代 <span class="required">*</span></label>
+                                <select id="age" name="age" required>
+                                    <option value="">選択してください</option>
+                                    <option value="30代">30代</option>
+                                    <option value="40代">40代</option>
+                                    <option value="50代">50代</option>
+                                    <option value="60代以上">60代以上</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="interest">ご興味のある内容 <span class="required">*</span></label>
+                                <select id="interest" name="interest" required>
+                                    <option value="">選択してください</option>
+                                    <option value="体験レッスン">体験レッスン</option>
+                                    <option value="定期レッスン">定期レッスン</option>
+                                    <option value="副業としての教室運営">副業としての教室運営</option>
+                                    <option value="健康面での相談">健康面での相談</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="experience">パン作りの経験</label>
+                                <select id="experience" name="experience">
+                                    <option value="">選択してください</option>
+                                    <option value="全くない">全くない</option>
+                                    <option value="少しある">少しある</option>
+                                    <option value="ある程度ある">ある程度ある</option>
+                                    <option value="かなりある">かなりある</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">ご相談内容・ご質問など</label>
+                                <textarea id="message" name="message" placeholder="ご相談内容やご質問がございましたら、お気軽にお書きください。"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-button">個別相談を申し込む</button>
+                        </form>
+                    </div>
+                `;
+                
+                // フォーム送信処理
+                document.getElementById('consultForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // フォームデータを取得
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData);
+                    
+                    // 送信ボタンを無効化
+                    const submitButton = this.querySelector('.submit-button');
+                    const originalText = submitButton.textContent;
+                    submitButton.textContent = '送信中...';
+                    submitButton.disabled = true;
+                    
+                    // 実際のGoogleフォームへの送信処理をここに実装
+                    // 現在はダミーの処理
+                    setTimeout(() => {
+                        alert('お申し込みありがとうございます！24時間以内にご連絡いたします。');
+                        this.reset();
+                        submitButton.textContent = originalText;
+                        submitButton.disabled = false;
+                    }, 2000);
+                });
+            }
+        }
 
+        // ページ読み込み時とリサイズ時にコンテンツを更新
+        window.addEventListener('load', loadContent);
+        window.addEventListener('resize', loadContent);
+    </script>
 </body>
 </html>
