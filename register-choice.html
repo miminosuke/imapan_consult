@@ -110,6 +110,16 @@
             text-align: center;
             margin-bottom: 50px;
         }
+        
+        .banner-full {
+           width: 100%;
+           max-width: 100%;
+           height: auto;
+           display: block;
+           margin: 0 auto;
+           border-radius: 15px; /* お好みで */
+           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* お好みで */
+         }
 
         .banner-image {
             width: 100%;
@@ -378,15 +388,16 @@
     </header>
 
     <!-- メインコンテンツ -->
-    <main class="main-content">
+    <div class="container">
         <!-- バナーセクション -->
         <section class="banner-section">
           <img src="個別相談バナー.png" alt="個別相談バナー" class="banner-full">
       </section>
-                  <!-- 画像が読み込めない場合のフォールバック -->
+    </div>                  <!-- 画像が読み込めない場合のフォールバック -->
             
 
         <!-- デバイス判定とコンテンツ表示 -->
+    <main class="main-content">
         <div id="content-area">
             <!-- JavaScriptで動的に内容を変更 -->
         </div>
