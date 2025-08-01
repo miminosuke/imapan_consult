@@ -7,24 +7,32 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="header"></div>
+
+  <!-- 共通ヘッダーの読み込み -->
+  <div id="header-placeholder"></div>
   <script>
-    fetch('header.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('header').innerHTML = data);
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
   </script>
 
+  <!-- バナー -->
   <div class="banner">
     <img src="個別相談バナー.png" alt="個別相談バナー" style="width: 100%; max-width: 800px; margin: 30px auto; display: block; border-radius: 12px;" />
   </div>
 
+  <!-- Googleフォーム -->
   <div class="form-section" style="max-width: 800px; margin: 0 auto 40px; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-    <iframe src="https://docs.google.com/forms/d/e/あなたのフォームID/viewform?embedded=true" width="100%" height="1200px" frameborder="0">読み込んでいます…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/【あなたのフォームID】/viewform?embedded=true" width="100%" height="1200px" frameborder="0">読み込んでいます…</iframe>
   </div>
 
+  <!-- LINE QRコード -->
   <div style="text-align: center; margin-bottom: 50px;">
     <h2>LINE公式アカウントもあります</h2>
     <img src="line-qr.png" alt="LINE QRコード" style="width: 200px; margin-top: 20px;" />
   </div>
+
 </body>
 </html>
