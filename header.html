@@ -1,12 +1,200 @@
 <header class="header">
-  <div class="container header-content">
-    <div class="header-left">
-      <div class="logo">[ロゴ]</div>
-      <h1 class="header-title">ふんわり米粉パン教室</h1>
+    <div class="container">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">[ロゴ]</div>
+                <h1 class="header-title">ふんわり米粉パン教室</h1>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="register-choice.html">個別相談</a></li>
+                </ul>
+                <button class="mobile-menu-toggle">☰</button>
+            </nav>
+            <div class="mobile-menu">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="register-choice.html">個別相談</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <ul class="nav-menu">
-      <li><a href="/imapan/">ホーム</a></li>
-      <li><a href="/imapan_consult/register-choice.html">個別相談</a></li>
-    </ul>
-  </div>
 </header>
+
+<style>
+    /* ヘッダーのスタイル */
+    .header {
+        background: linear-gradient(135deg, #f5f2e9 0%, #e8e4d9 100%);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #e8e4d9 0%, #d4c8b8 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #8b7355;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+    }
+
+    .header-title {
+        font-size: 1.4rem;
+        color: #6b5b47;
+        font-weight: 600;
+        white-space: nowrap;
+        margin: 0;
+    }
+
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-menu li {
+        margin: 0;
+    }
+
+    .nav-menu a {
+        color: #6b5b47;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .nav-menu a:hover {
+        color: #8b7355;
+    }
+
+    .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #6b5b47;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+    .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-top: 1px solid #e8e4d9;
+    }
+
+    .mobile-menu.active {
+        display: block;
+    }
+
+    .mobile-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .mobile-menu li {
+        margin: 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .mobile-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-menu a {
+        display: block;
+        padding: 15px 0;
+        color: #6b5b47;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .mobile-menu a:hover {
+        color: #8b7355;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+        .nav-menu {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: block;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            font-size: 0.8rem;
+        }
+
+        .container {
+            padding: 0 15px;
+        }
+    }
+</style>
+
+<script>
+    // モバイルメニューの切り替え機能
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+
+            // メニュー外をクリックしたら閉じる
+            document.addEventListener('click', function(e) {
+                if (!mobileMenuToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
+    });
+</script>
