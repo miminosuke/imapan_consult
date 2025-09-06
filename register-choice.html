@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個別相談お申し込み | 今林美恵子パン教室</title>
+    <title>個別相談・各種お申し込み | 今林美恵子パン教室</title>
     <style>
         * {
             margin: 0;
@@ -24,7 +24,6 @@
             padding: 0 20px;
         }
 
-        /* ヘッダー */
         .header {
             background: linear-gradient(135deg, #f5f2e9 0%, #e8e4d9 100%);
             padding: 15px 0;
@@ -87,7 +86,6 @@
             color: #8b7355;
         }
 
-        /* バナー */
         .banner-section {
             text-align: center;
             margin-bottom: 40px;
@@ -101,7 +99,6 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        /* メイン */
         .main-content {
             max-width: 800px;
             margin: 0 auto;
@@ -128,7 +125,6 @@
             line-height: 1.6;
         }
 
-        /* LINE */
         .line-section {
             background: #00C300;
             color: white;
@@ -178,7 +174,6 @@
             padding: 10px;
         }
 
-        /* フォーム枠 */
         .form-wrapper {
             background: white;
             padding: 30px;
@@ -207,168 +202,34 @@
             border-radius: 10px;
         }
 
-        .contact-panel {
+        .response-info {
             text-align: center;
             margin-top: 20px;
             padding: 20px;
-            background: #f7f4f0;
+            background: #f0f8ff;
             border-radius: 10px;
+            border-left: 4px solid #4a90e2;
         }
 
-        .contact-panel a {
-            color: #e74c3c;
-            text-decoration: none;
-            font-weight: 600;
+        .response-info h4 {
+            color: #4a90e2;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
         }
 
-        /* レスポンシブ */
-        @media (max-width: 768px) {
-            .header-title {
-                font-size: 1.2rem;
-            }
-
-            .logo {
-                width: 40px;
-                height: 40px;
-                font-size: 0.8rem;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .main-content {
-                padding: 25px 15px;
-            }
-
-            .device-message,
-            .line-section,
-            .form-wrapper {
-                padding: 25px 20px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- ヘッダー -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-left">
-                    <div class="logo">🥐</div>
-                    <h1 class="header-title">今林美恵子パン教室</h1>
-                </div>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="https://miminosuke.github.io/imapan/">ホーム</a></li>
-                        <li><a href="#features">特徴</a></li>
-                        <li><a href="#instructor">講師紹介</a></li>
-                        <li><a href="#testimonials">受講者の声</a></li>
-                        <li><a href="#courses">コース案内</a></li>
-                        <li><a href="#faq">よくある質問</a></li>
-                        <li><a href="#consult">お問い合わせ</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- バナー -->
-    <div class="container">
-        <section class="banner-section">
-            <img src="個別相談バナー.png" alt="個別相談お申し込みバナー" class="banner-full">
-        </section>
-    </div>
-
-    <!-- メイン -->
-    <main class="main-content">
-        <div id="content-area"></div>
-    </main>
-
-    <script>
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                   window.innerWidth <= 768;
+        .response-info p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        function loadContent() {
-            const contentArea = document.getElementById('content-area');
-
-            if (isMobileDevice()) {
-                // スマホ版：LINEを最優先、フォームと電話も併記
-                contentArea.innerHTML = `
-                    <div class="device-message">
-                        <h2>📝 個別相談お申し込み</h2>
-                        <p>講師養成コース・開業サポート・個別相談など<br>
-                        お気軽にご相談ください。</p>
-                    </div>
-
-                    <div class="line-section">
-                        <h3>LINE公式アカウント</h3>
-                        <p>LINEでのご相談・お申し込みが便利です</p>
-                        <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_consult_sp" 
-                           class="line-button" target="_blank" rel="noopener noreferrer">
-                            💬 LINEで相談する
-                        </a>
-                        <div class="line-qr">
-                            <p style="margin-bottom: 12px; font-size: 0.9rem;">QRコードからも追加できます</p>
-                            <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
-                                 alt="LINE QRコード">
-                        </div>
-                    </div>
-
-                    <div class="form-wrapper">
-                        <h3>📝 フォームでお申し込み</h3>
-                        <p>24時間受付中。通常24時間以内にご返信いたします。</p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_sp" 
-                           class="line-button" style="background:#8b7355; color:#fff;" target="_blank">
-                            フォームを開く
-                        </a>
-                    </div>
-
-                    <div class="contact-panel">
-                        <p>お電話でのご相談：<a href="tel:090-xxxx-xxxx">📞 090-xxxx-xxxx</a></p>
-                        <p style="font-size: 0.9rem; color: #777; margin-top: 5px;">受付時間：10:00–18:00（平日）</p>
-                    </div>
-                `;
-            } else {
-                // PC版：フォーム埋め込み + LINE・電話案内
-                contentArea.innerHTML = `
-                    <div class="form-wrapper">
-                        <h3>📝 個別相談お申し込みフォーム</h3>
-                        <p>講師養成コース・開業サポート・個別相談など、下記フォームからお申し込みください。<br>
-                        送信後、24時間以内にご連絡いたします。</p>
-                        
-                        <iframe
-                            src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true&utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_pc"
-                            loading="lazy" title="個別相談・お申し込みフォーム">
-                            読み込んでいます…
-                        </iframe>
-
-                        <div class="contact-panel">
-                            <p>お電話でのご相談：<a href="tel:090-xxxx-xxxx">📞 090-xxxx-xxxx</a></p>
-                            <p style="font-size: 0.9rem; color: #777;">受付時間：10:00–18:00（平日）</p>
-                        </div>
-                    </div>
-
-                    <div class="line-section">
-                        <h3>💬 LINEで相談する（おすすめ）</h3>
-                        <p>メッセージでのやり取りがスムーズです。QRコードから追加できます。</p>
-                        <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_consult_pc" 
-                           class="line-button" target="_blank" rel="noopener noreferrer">
-                            LINEを開く
-                        </a>
-                        <div class="line-qr">
-                            <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
-                                 alt="LINE公式アカウントQRコード">
-                        </div>
-                    </div>
-                `;
-            }
+        .phone-option {
+            background: #fff8e7;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f39c12;
+            margin-top: 20px;
         }
 
-        window.addEventListener('load', loadContent);
-        window.addEventListener('resize', loadContent);
-    </script>
-</body>
-</html>
+        .phone-option h4 {
+            color: #e<span class="cursor">█</span>
