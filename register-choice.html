@@ -3,15 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個別相談 | ふんわり米粉パン教室</title>
+    <title>体験レッスンお申し込み | 今林美恵子パン教室</title>
     <style>
-        .banner-full {
-           width: 100%;
-           height: auto;
-           display: block;
-           object-fit: cover;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -81,10 +74,6 @@
             padding: 0;
         }
 
-        .nav-menu li {
-            margin: 0;
-        }
-
         .nav-menu a {
             color: #6b5b47;
             text-decoration: none;
@@ -98,65 +87,33 @@
             color: #8b7355;
         }
 
-        /* メインコンテンツ */
+        /* バナー */
+        .banner-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .banner-full {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        /* メイン */
         .main-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 30px 20px;
         }
 
-        /* バナーセクション */
-        .banner-section {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .banner-full {
-           width: 100%;
-           max-width: 100%;
-           height: auto;
-           display: block;
-           margin: 0 auto;
-           border-radius: 15px; /* お好みで */
-           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* お好みで */
-         }
-
-        .banner-image {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .banner-fallback {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
-
-        .banner-fallback h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .banner-fallback p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        /* デバイス判定メッセージ */
         .device-message {
             background: white;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
@@ -168,39 +125,38 @@
 
         .device-message p {
             color: #8b7355;
-            margin-bottom: 20px;
             line-height: 1.6;
         }
 
-        /* LINE用のスタイル */
+        /* LINE */
         .line-section {
             background: #00C300;
             color: white;
-            padding: 40px 30px;
+            padding: 35px 25px;
             border-radius: 15px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .line-section h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 1.7rem;
+            margin-bottom: 12px;
         }
 
         .line-section p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
         }
 
         .line-button {
             display: inline-block;
             background: white;
             color: #00C300;
-            padding: 15px 40px;
+            padding: 14px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
@@ -211,7 +167,7 @@
         }
 
         .line-qr {
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         .line-qr img {
@@ -222,104 +178,50 @@
             padding: 10px;
         }
 
-        /* フォーム用のスタイル */
-        .form-section {
+        /* フォーム枠 */
+        .form-wrapper {
             background: white;
-            padding: 40px 30px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
-        }
-
-        .form-section h3 {
-            color: #6b5b47;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .form-section p {
-            color: #8b7355;
-            margin-bottom: 30px;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        /* カスタムフォームスタイル */
-        .custom-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
             margin-bottom: 25px;
         }
 
-        .form-group label {
-            display: block;
+        .form-wrapper h3 {
             color: #6b5b47;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-wrapper p {
+            color: #8b7355;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        iframe {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e8e4d9;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #8b7355;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .required {
-            color: #e74c3c;
-        }
-
-        .submit-button {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: white;
-            padding: 15px 50px;
+            height: 1400px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            border-radius: 10px;
+        }
+
+        .contact-panel {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f7f4f0;
+            border-radius: 10px;
+        }
+
+        .contact-panel a {
+            color: #e74c3c;
+            text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-            display: block;
-            margin: 30px auto 0;
         }
 
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-        }
-
-        /* Google フォーム iframe スタイル */
-        .google-form-container {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        /* レスポンシブ対応 */
+        /* レスポンシブ */
         @media (max-width: 768px) {
             .header-title {
                 font-size: 1.2rem;
@@ -336,29 +238,13 @@
             }
 
             .main-content {
-                padding: 30px 15px;
-            }
-
-            .banner-fallback {
-                padding: 40px 25px;
-            }
-
-            .banner-fallback h1 {
-                font-size: 1.8rem;
-            }
-
-            .banner-fallback p {
-                font-size: 1.1rem;
+                padding: 25px 15px;
             }
 
             .device-message,
             .line-section,
-            .form-section {
+            .form-wrapper {
                 padding: 25px 20px;
-            }
-
-            .container {
-                padding: 0 15px;
             }
         }
     </style>
@@ -369,8 +255,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
-                    <div class="logo">[ロゴ]</div>
-                    <h1 class="header-title">ふんわり米粉パン教室</h1>
+                    <div class="logo">🥐</div>
+                    <h1 class="header-title">今林美恵子パン教室</h1>
                 </div>
                 <nav>
                     <ul class="nav-menu">
@@ -387,106 +273,104 @@
         </div>
     </header>
 
-    <!-- メインコンテンツ -->
+    <!-- バナー -->
     <div class="container">
-        <!-- バナーセクション -->
         <section class="banner-section">
-          <img src="個別相談バナー.png" alt="個別相談バナー" class="banner-full">
-      </section>
-    </div>                  <!-- 画像が読み込めない場合のフォールバック -->
-            
+            <img src="個別相談バナー.png" alt="体験レッスンバナー" class="banner-full">
+        </section>
+    </div>
 
-        <!-- デバイス判定とコンテンツ表示 -->
+    <!-- メイン -->
     <main class="main-content">
-        <div id="content-area">
-            <!-- JavaScriptで動的に内容を変更 -->
-        </div>
+        <div id="content-area"></div>
     </main>
 
     <script>
-        // デバイス判定関数
         function isMobileDevice() {
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
                    window.innerWidth <= 768;
         }
 
-        // コンテンツを動的に生成
         function loadContent() {
             const contentArea = document.getElementById('content-area');
-            
+
             if (isMobileDevice()) {
-                // スマートフォン用：LINE誘導
+                // スマホ版：LINEを最優先、フォームと電話も併記
                 contentArea.innerHTML = `
                     <div class="device-message">
-                        <h2>📱 スマートフォンでのご利用</h2>
-                        <p>スマートフォンからはLINE公式アカウントでの個別相談が便利です！<br>
+                        <h2>🎯 体験レッスンお申し込み</h2>
+                        <p>スマートフォンからはLINEでの予約が便利です！<br>
                         お気軽にメッセージをお送りください。</p>
                     </div>
-                    
+
                     <div class="line-section">
-                        <h3>LINE公式アカウント</h3>
-                        <p>LINEで簡単に個別相談ができます</p>
-                        <a href="https://lin.ee/kz9Mt1S" class="line-button" target="_blank" rel="noopener noreferrer">
-                            LINEで相談する
+                        <h3>体験レッスン予約 - LINE公式</h3>
+                        <p>LINEで体験レッスンの予約・相談ができます</p>
+                        <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_trial_sp" 
+                           class="line-button" target="_blank" rel="noopener noreferrer">
+                            🎯 体験レッスン予約
                         </a>
                         <div class="line-qr">
-                            <p style="margin-bottom: 15px; font-size: 0.9rem;">QRコードからも追加できます</p>
-                            <div style="width: 200px; height: 200px; background: white; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; color: #666;">
-                                QRコード<br>（画像準備中）
-                            </div>
+                            <p style="margin-bottom: 12px; font-size: 0.9rem;">QRコードからも追加できます</p>
+                            <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
+                                 alt="LINE QRコード">
                         </div>
+                    </div>
+
+                    <div class="form-wrapper">
+                        <h3>📝 フォームでお申し込み</h3>
+                        <p>24時間受付中。通常24時間以内にご返信いたします。</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?utm_source=website&utm_medium=register_choice&utm_campaign=form_trial_sp" 
+                           class="line-button" style="background:#8b7355; color:#fff;" target="_blank">
+                            フォームを開く
+                        </a>
+                    </div>
+
+                    <div class="contact-panel">
+                        <p>お電話でのご相談：<a href="tel:090-xxxx-xxxx">📞 090-xxxx-xxxx</a></p>
+                        <p style="font-size: 0.9rem; color: #777; margin-top: 5px;">受付時間：10:00–18:00（平日）</p>
                     </div>
                 `;
             } else {
-                // PC用：フォーム表示
+                // PC版：フォーム埋め込み + LINE・電話案内
                 contentArea.innerHTML = `
-                　　<div class="device-message" style="text-align:center; margin-bottom:30px;">
-                    <h2>LINEでの個別相談が便利です！<h2>
-                    <br><p>QRコードからLINE公式アカウントを友だち追加できます。</p>
-                    <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" alt="LINE QRコード" style="width:200px; height:200px; margin:0 auto; background:white; padding:10px; border-radius:10px;">
-                    <p style="font-size:0.9rem;">スマートフォンでQRコードを読み取ってLINEからもご相談いただけます。</p>
+                    <div class="device-message">
+                        <h2>🎯 体験レッスンお申し込み</h2>
+                        <p>福岡・オンライン対応｜はじめての方歓迎｜24時間以内にご返信します</p>
                     </div>
-                    <div style="max-width: 700px; margin: 0 auto; background: #fff; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); padding: 30px;">
-  <iframe
-    src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true"
-    width="100%" height="1223"
-    frameborder="0" marginheight="0" marginwidth="0"
-    style="background:white; border-radius: 15px;">
-    読み込んでいます…
-  </iframe>
-</div>        
-                            <button type="submit" class="submit-button">個別相談を申し込む</button>
-                        </form>
+
+                    <div class="form-wrapper">
+                        <h3>📝 お申し込みフォーム</h3>
+                        <p>下記フォームにご入力ください。送信後、24時間以内にご連絡いたします。</p>
+                        
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true&utm_source=website&utm_medium=register_choice&utm_campaign=form_trial_pc"
+                            loading="lazy" title="体験レッスン申込フォーム">
+                            読み込んでいます…
+                        </iframe>
+
+                        <div class="contact-panel">
+                            <p>お電話でのご相談：<a href="tel:090-xxxx-xxxx">📞 090-xxxx-xxxx</a></p>
+                            <p style="font-size: 0.9rem; color: #777;">受付時間：10:00–18:00（平日）</p>
+                        </div>
+                    </div>
+
+                    <div class="line-section">
+                        <h3>💬 LINEで相談する（おすすめ）</h3>
+                        <p>メッセージでのやり取りがスムーズです。QRコードから追加できます。</p>
+                        <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_trial_pc" 
+                           class="line-button" target="_blank" rel="noopener noreferrer">
+                            LINEを開く
+                        </a>
+                        <div class="line-qr">
+                            <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
+                                 alt="LINE公式アカウントQRコード">
+                        </div>
                     </div>
                 `;
-                
-                // フォーム送信処理
-                document.getElementById('consultForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // フォームデータを取得
-                    const formData = new FormData(this);
-                    const data = Object.fromEntries(formData);
-                    
-                    // 送信ボタンを無効化
-                    const submitButton = this.querySelector('.submit-button');
-                    const originalText = submitButton.textContent;
-                    submitButton.textContent = '送信中...';
-                    submitButton.disabled = true;
-                    
-                    // 実際のGoogleフォームへの送信処理をここに実装
-                    // 現在はダミーの処理
-                    setTimeout(() => {
-                        alert('お申し込みありがとうございます！24時間以内にご連絡いたします。');
-                        this.reset();
-                        submitButton.textContent = originalText;
-                        submitButton.disabled = false;
-                    }, 2000);
-                });
             }
         }
 
-        // ページ読み込み時とリサイズ時にコンテンツを更新
         window.addEventListener('load', loadContent);
         window.addEventListener('resize', loadContent);
     </script>
