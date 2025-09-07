@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個別相談お申し込み | ふんわり米粉パン教室</title>
+    <title>個別相談お申し込み | 今林美恵子パン教室</title>
     <style>
         * {
             margin: 0;
@@ -46,7 +46,28 @@
             gap: 15px;
         }
 
+        /* ロゴ画像用スタイル */
         .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* フォールバック用スタイル */
+        .logo-fallback {
             width: 50px;
             height: 50px;
             background: linear-gradient(135deg, #e8e4d9 0%, #d4c8b8 100%);
@@ -227,9 +248,13 @@
                 font-size: 1.2rem;
             }
 
-            .logo {
+            .logo,
+            .logo-fallback {
                 width: 40px;
                 height: 40px;
+            }
+
+            .logo-fallback {
                 font-size: 0.8rem;
             }
 
@@ -255,13 +280,19 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
-                    <div class="logo">🥐</div>
-                    <h1 class="header-title">ふんわり米粉パン教室</h1>
+                    <!-- ロゴ画像の実装（フォールバック機能付き） -->
+                    <div class="logo">
+                        <img src="教室ロゴ.png" alt="今林美恵子パン教室ロゴ" 
+                             onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" 
+                             loading="lazy">
+                    </div>
+                    <div class="logo-fallback" style="display: none;">🥐</div>
+                    <h1 class="header-title">今林美恵子パン教室</h1>
                 </div>
                 <nav>
                     <ul class="nav-menu">
                         <li><a href="https://miminosuke.github.io/imapan/">ホーム</a></li>
-　　　　　　　　　　　　　<li><a href="#features">特徴</a></li>
+                        <li><a href="#features">特徴</a></li>
                         <li><a href="#instructor">講師紹介</a></li>
                         <li><a href="#courses">コース案内</a></li>
                         <li><a href="#contact">お問い合わせ</a></li>
@@ -293,7 +324,7 @@
             const contentArea = document.getElementById('content-area');
 
             if (isMobileDevice()) {
-                // スマホ版：LINEを最優先、フォームと電話も併記
+                // スマホ版：LINEを最優先、フォームも併記
                 contentArea.innerHTML = `
                     <div class="device-message">
                         <h2>📝 個別相談・各種お申し込み</h2>
@@ -325,7 +356,7 @@
                     </div>
                 `;
             } else {
-                // PC版：フォーム埋め込み + LINE・電話案内
+                // PC版：フォーム埋め込み + LINE案内
                 contentArea.innerHTML = `
                     <div class="form-wrapper">
                         <h3>📝 個別相談お申し込みフォーム</h3>
