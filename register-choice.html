@@ -24,7 +24,7 @@
             padding: 0 20px;
         }
 
-        /* ヘッダー */
+        /* ヘッダー（LINEアイコン追加版） */
         .header {
             background: linear-gradient(135deg, #f5f2e9 0%, #e8e4d9 100%);
             padding: 15px 0;
@@ -46,7 +46,6 @@
             gap: 15px;
         }
 
-        /* ロゴ画像用スタイル */
         .logo {
             width: 50px;
             height: 50px;
@@ -63,10 +62,8 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            display: block;
         }
 
-        /* フォールバック用スタイル */
         .logo-fallback {
             width: 50px;
             height: 50px;
@@ -77,7 +74,6 @@
             justify-content: center;
             color: #8b7355;
             font-size: 0.9rem;
-            flex-shrink: 0;
         }
 
         .header-title {
@@ -85,6 +81,13 @@
             color: #6b5b47;
             font-weight: 600;
             white-space: nowrap;
+        }
+
+        /* ナビゲーション（LINEアイコン追加） */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
 
         .nav-menu {
@@ -108,117 +111,98 @@
             color: #8b7355;
         }
 
-        /* バナー */
+        /* LINEアイコン（PC専用・控えめなデザイン） */
+        .line-nav-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background: #00C300;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .line-nav-icon:hover {
+            filter: brightness(0.95);
+            transform: translateY(-1px);
+        }
+
+        .line-nav-icon::before {
+            content: "💬";
+        }
+
+        /* バナー（クリック可能） */
         .banner-section {
             text-align: center;
-            margin-bottom: 40px;
+            margin: 20px 0 32px;
+        }
+
+        .hero-link {
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-link:hover {
+            transform: translateY(-2px);
         }
 
         .banner-full {
+            display: block;
             width: 100%;
             height: auto;
-            display: block;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
-        /* メイン */
+        /* メインコンテンツ */
         .main-content {
             max-width: 800px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 20px;
+            display: grid;
+            gap: 25px;
         }
 
-        .device-message {
+        .content-card {
             background: white;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 30px;
-            text-align: center;
         }
 
-        .device-message h2 {
+        .content-card h3 {
             color: #6b5b47;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
-        }
-
-        .device-message p {
-            color: #8b7355;
-            line-height: 1.6;
-        }
-
-        /* LINE */
-        .line-section {
-            background: #00C300;
-            color: white;
-            padding: 35px 25px;
-            border-radius: 15px;
             text-align: center;
-            margin-bottom: 25px;
         }
 
-        .line-section h3 {
-            font-size: 1.7rem;
-            margin-bottom: 12px;
-        }
-
-        .line-section p {
-            font-size: 1.05rem;
+        .content-card p {
+            color: #8b7355;
+            text-align: center;
             margin-bottom: 20px;
         }
 
-        .line-button {
-            display: inline-block;
-            background: white;
-            color: #00C300;
-            padding: 14px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .line-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .line-qr {
-            margin-top: 20px;
-        }
-
-        .line-qr img {
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            background: white;
-            padding: 10px;
-        }
-
-        /* フォーム枠 */
-        .form-wrapper {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            margin-bottom: 25px;
-        }
-
-        .form-wrapper h3 {
-            color: #6b5b47;
-            font-size: 1.7rem;
-            margin-bottom: 15px;
+        .micro-info {
+            font-size: 0.9rem;
+            color: #999;
             text-align: center;
+            margin-bottom: 20px;
         }
 
-        .form-wrapper p {
-            color: #8b7355;
+        /* フォーム関連（重要：JavaScript不要のCSS制御） */
+        .form-embed {
+            display: block;
+        }
+
+        .form-link {
+            display: none;
             text-align: center;
-            margin-bottom: 25px;
         }
 
         iframe {
@@ -228,48 +212,98 @@
             border-radius: 10px;
         }
 
-        .contact-panel {
+        /* LINE関連 */
+        .line-section {
+            background: #00C300;
+            color: white;
             text-align: center;
-            margin-top: 20px;
-            padding: 20px;
-            background: #f7f4f0;
-            border-radius: 10px;
         }
 
-        .contact-panel a {
-            color: #e74c3c;
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* レスポンシブ */
+        .btn-primary {
+            background: #8b7355;
+            color: white;
+        }
+
+        .btn-line {
+            background: white;
+            color: #00C300;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .line-qr img {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            background: white;
+            padding: 8px;
+            margin-top: 15px;
+        }
+
+        /* スクロール位置調整 */
+        #consult {
+            scroll-margin-top: 90px;
+        }
+
+        /* レスポンシブ対応（CSSのみで制御） */
         @media (max-width: 768px) {
             .header-title {
                 font-size: 1.2rem;
             }
 
-            .logo,
-            .logo-fallback {
-                width: 40px;
-                height: 40px;
-            }
-
-            .logo-fallback {
-                font-size: 0.8rem;
-            }
-
-            .nav-menu {
+            .nav-menu,
+            .line-nav-icon {
                 display: none;
             }
 
-            .main-content {
-                padding: 25px 15px;
+            /* モバイル：フォーム埋め込み非表示、リンクボタン表示 */
+            .form-embed {
+                display: none;
             }
 
-            .device-message,
-            .line-section,
-            .form-wrapper {
+            .form-link {
+                display: block;
+            }
+
+            .main-content {
+                padding: 15px;
+                gap: 20px;
+            }
+
+            .content-card {
                 padding: 25px 20px;
+            }
+
+            /* モバイル：LINEを最上位に表示 */
+            .line-section {
+                order: -1;
+            }
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #6b5b47;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
             }
         }
     </style>
@@ -280,115 +314,92 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-left">
-                    <!-- ロゴ画像の実装（フォールバック機能付き） -->
                     <div class="logo">
                         <img src="教室ロゴ.png" alt="今林美恵子パン教室ロゴ" 
-                             onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';" 
-                             loading="lazy">
+                             onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';">
                     </div>
                     <div class="logo-fallback" style="display: none;">🥐</div>
                     <h1 class="header-title">今林美恵子パン教室</h1>
                 </div>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="https://miminosuke.github.io/imapan/">ホーム</a></li>
-                        <li><a href="#features">特徴</a></li>
-                        <li><a href="#instructor">講師紹介</a></li>
-                        <li><a href="#courses">コース案内</a></li>
-                        <li><a href="#contact">お問い合わせ</a></li>
-                    </ul>
-                </nav>
+                <div class="header-right">
+                    <nav>
+                        <ul class="nav-menu">
+                            <li><a href="https://miminosuke.github.io/imapan/">ホーム</a></li>
+                            <li><a href="#features">特徴</a></li>
+                            <li><a href="#instructor">講師紹介</a></li>
+                            <li><a href="#courses">コース案内</a></li>
+                            <li><a href="#contact">お問い合わせ</a></li>
+                        </ul>
+                    </nav>
+                    <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=header&utm_campaign=line_consult" 
+                       class="line-nav-icon" target="_blank" rel="noopener noreferrer">
+                        LINE相談
+                    </a>
+                    <button class="mobile-menu-toggle">☰</button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- バナー -->
+    <!-- バナー（クリック可能） -->
     <div class="container">
         <section class="banner-section">
-            <img src="個別相談バナー.png" alt="個別相談・各種お申し込みバナー" class="banner-full">
+            <a href="#consult" class="hero-link" aria-label="無料個別相談会に申し込む">
+                <img src="個別相談バナー.png" 
+                     alt="グルテンフリー×天然酵母米粉パン 40代からの好きを仕事に 毎月限定5名様 無料個別相談会" 
+                     class="banner-full" loading="eager">
+            </a>
         </section>
     </div>
 
-    <!-- メイン -->
+    <!-- メインコンテンツ（JavaScript不要） -->
     <main class="main-content">
-        <div id="content-area"></div>
+        <!-- フォームセクション -->
+        <section id="consult" class="content-card">
+            <h3>📝 個別相談お申し込みフォーム</h3>
+            <p>講師養成コース・開業サポート・個別相談など、お気軽にご相談ください。</p>
+            <p class="micro-info">90分・オンライン対応可・手ぶらOK／送信後24時間以内にご連絡</p>
+            
+            <!-- PC：埋め込みフォーム表示 -->
+            <div class="form-embed">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true&utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_pc"
+                    loading="lazy" title="個別相談フォーム">
+                    読み込んでいます…
+                </iframe>
+            </div>
+            
+            <!-- モバイル：フォームリンクボタン表示 -->
+            <div class="form-link">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_sp" 
+                   class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    フォームを開く
+                </a>
+            </div>
+        </section>
+
+        <!-- LINEセクション（補助導線） -->
+        <section class="content-card line-section">
+            <h3>💬 LINEで相談する（おすすめ）</h3>
+            <p>メッセージでのやり取りがスムーズです。QRコードから追加できます。</p>
+            <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_consult" 
+               class="btn btn-line" target="_blank" rel="noopener noreferrer">
+                LINEを開く
+            </a>
+            <div class="line-qr">
+                <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
+                     alt="LINE公式アカウントQRコード">
+            </div>
+        </section>
     </main>
 
+    <!-- JavaScriptは最小限のみ（DOM操作なし） -->
     <script>
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                   window.innerWidth <= 768;
-        }
-
-        function loadContent() {
-            const contentArea = document.getElementById('content-area');
-
-            if (isMobileDevice()) {
-                // スマホ版：LINEを最優先、フォームも併記
-                contentArea.innerHTML = `
-                    <div class="device-message">
-                        <h2>📝 個別相談・各種お申し込み</h2>
-                        <p>講師養成コース・開業サポート・個別相談など<br>
-                        お気軽にご相談ください。</p>
-                    </div>
-
-                    <div class="line-section">
-                        <h3>LINE公式アカウント</h3>
-                        <p>LINEでのご相談・お申し込みが便利です</p>
-                        <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_consult_sp" 
-                           class="line-button" target="_blank" rel="noopener noreferrer">
-                            💬 LINEで相談する
-                        </a>
-                        <div class="line-qr">
-                            <p style="margin-bottom: 12px; font-size: 0.9rem;">QRコードからも追加できます</p>
-                            <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
-                                 alt="LINE QRコード">
-                        </div>
-                    </div>
-
-                    <div class="form-wrapper">
-                        <h3>📝 フォームでお申し込み</h3>
-                        <p>24時間受付中。通常24時間以内にご返信いたします。</p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_sp" 
-                           class="line-button" style="background:#8b7355; color:#fff;" target="_blank">
-                            フォームを開く
-                        </a>
-                    </div>
-                `;
-            } else {
-                // PC版：フォーム埋め込み + LINE案内
-                contentArea.innerHTML = `
-                    <div class="form-wrapper">
-                        <h3>📝 個別相談お申し込みフォーム</h3>
-                        <p>講師養成コース・開業サポート・個別相談など、下記フォームからお申し込みください。<br>
-                        送信後、24時間以内にご連絡いたします。</p>
-                        
-                        <iframe
-                            src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true&utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_pc"
-                            loading="lazy" title="個別相談フォーム">
-                            読み込んでいます…
-                        </iframe>
-
-                     </div>
-
-                    <div class="line-section">
-                        <h3>💬 LINEで相談する（おすすめ）</h3>
-                        <p>メッセージでのやり取りがスムーズです。QRコードから追加できます。</p>
-                        <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_consult_pc" 
-                           class="line-button" target="_blank" rel="noopener noreferrer">
-                            LINEを開く
-                        </a>
-                        <div class="line-qr">
-                            <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
-                                 alt="LINE公式アカウントQRコード">
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        window.addEventListener('load', loadContent);
-        window.addEventListener('resize', loadContent);
+        // モバイルメニューのみ（将来の拡張用）
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            // 現在はメニューなしだが、将来のHP制作時に使用
+        });
     </script>
 </body>
 </html>
