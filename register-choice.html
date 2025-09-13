@@ -24,7 +24,6 @@
             padding: 0 20px;
         }
 
-        /* ヘッダー（LINEアイコン追加版） */
         .header {
             background: linear-gradient(135deg, #f5f2e9 0%, #e8e4d9 100%);
             padding: 15px 0;
@@ -83,7 +82,6 @@
             white-space: nowrap;
         }
 
-        /* ナビゲーション（LINEアイコン追加） */
         .header-right {
             display: flex;
             align-items: center;
@@ -111,31 +109,15 @@
             color: #8b7355;
         }
 
-        /* LINEアイコン（PC専用・控えめなデザイン） */
-        .line-nav-icon {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 12px;
-            border-radius: 20px;
-            background: #00C300;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
+        /* LINE友だち追加ボタン（新デザイン） */
+        .line-add-btn {
+            transition: transform 0.2s ease;
         }
 
-        .line-nav-icon:hover {
-            filter: brightness(0.95);
+        .line-add-btn:hover {
             transform: translateY(-1px);
         }
 
-        .line-nav-icon::before {
-            content: "💬";
-        }
-
-        /* バナー（クリック可能） */
         .banner-section {
             text-align: center;
             margin: 20px 0 32px;
@@ -159,7 +141,6 @@
             height: auto;
         }
 
-        /* メインコンテンツ */
         .main-content {
             max-width: 800px;
             margin: 0 auto;
@@ -195,7 +176,6 @@
             margin-bottom: 20px;
         }
 
-        /* フォーム関連（重要：JavaScript不要のCSS制御） */
         .form-embed {
             display: block;
         }
@@ -212,7 +192,6 @@
             border-radius: 10px;
         }
 
-        /* LINE関連 */
         .line-section {
             background: #00C300;
             color: white;
@@ -252,23 +231,20 @@
             margin-top: 15px;
         }
 
-        /* スクロール位置調整 */
         #consult {
             scroll-margin-top: 90px;
         }
 
-        /* レスポンシブ対応（CSSのみで制御） */
         @media (max-width: 768px) {
             .header-title {
                 font-size: 1.2rem;
             }
 
             .nav-menu,
-            .line-nav-icon {
+            .line-add-btn {
                 display: none;
             }
 
-            /* モバイル：フォーム埋め込み非表示、リンクボタン表示 */
             .form-embed {
                 display: none;
             }
@@ -286,7 +262,6 @@
                 padding: 25px 20px;
             }
 
-            /* モバイル：LINEを最上位に表示 */
             .line-section {
                 order: -1;
             }
@@ -309,7 +284,6 @@
     </style>
 </head>
 <body>
-    <!-- ヘッダー -->
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -331,9 +305,11 @@
                             <li><a href="#contact">お問い合わせ</a></li>
                         </ul>
                     </nav>
+                    <!-- LINE友だち追加ボタン（新デザイン） -->
                     <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=header&utm_campaign=line_consult" 
-                       class="line-nav-icon" target="_blank" rel="noopener noreferrer">
-                        LINE相談
+                       class="line-add-btn" target="_blank" rel="noopener noreferrer">
+                        <img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" 
+                             alt="友だち追加" height="36" border="0">
                     </a>
                     <button class="mobile-menu-toggle">☰</button>
                 </div>
@@ -341,7 +317,6 @@
         </div>
     </header>
 
-    <!-- バナー（クリック可能） -->
     <div class="container">
         <section class="banner-section">
             <a href="#consult" class="hero-link" aria-label="無料個別相談会に申し込む">
@@ -352,15 +327,12 @@
         </section>
     </div>
 
-    <!-- メインコンテンツ（JavaScript不要） -->
     <main class="main-content">
-        <!-- フォームセクション -->
         <section id="consult" class="content-card">
             <h3>📝 個別相談お申し込みフォーム</h3>
             <p>講師養成コース・開業サポート・個別相談など、お気軽にご相談ください。</p>
             <p class="micro-info">90分・オンライン対応可・手ぶらOK／送信後24時間以内にご連絡</p>
             
-            <!-- PC：埋め込みフォーム表示 -->
             <div class="form-embed">
                 <iframe
                     src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true&utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_pc"
@@ -369,7 +341,6 @@
                 </iframe>
             </div>
             
-            <!-- モバイル：フォームリンクボタン表示 -->
             <div class="form-link">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_sp" 
                    class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -378,7 +349,6 @@
             </div>
         </section>
 
-        <!-- LINEセクション（補助導線） -->
         <section class="content-card line-section">
             <h3>💬 LINEで相談する（おすすめ）</h3>
             <p>メッセージでのやり取りがスムーズです。QRコードから追加できます。</p>
@@ -393,12 +363,9 @@
         </section>
     </main>
 
-    <!-- JavaScriptは最小限のみ（DOM操作なし） -->
     <script>
-        // モバイルメニューのみ（将来の拡張用）
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            // 現在はメニューなしだが、将来のHP制作時に使用
         });
     </script>
 </body>
