@@ -308,6 +308,24 @@
                 display: block;
             }
         }
+        /* LINEセクションの白い枠を削除 */
+.line-compact {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+/* 緑のボックスに適切な余白を確保 */
+.line-section {
+    margin: 25px auto;
+}
+
+/* スマホでの余白調整 */
+@media (max-width: 768px) {
+    .line-section {
+        margin: 20px auto;
+    }
+}
     </style>
 </head>
 <body>
