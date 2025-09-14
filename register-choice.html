@@ -341,6 +341,26 @@
         margin: 20px auto;
     }
 }
+ /* スマホバナー拡大（強制適用版） */
+@media (max-width: 768px) {
+    /* バナーコンテナの左右余白を強制変更 */
+    body header + .container {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    
+    /* バナーセクションの余白調整 */
+    .banner-section {
+        margin: 10px -5px 20px -5px !important;
+    }
+    
+    /* バナー画像の幅を画面幅に近づける */
+    .banner-full {
+        width: calc(100vw - 10px) !important;
+        max-width: none !important;
+        border-radius: 10px !important;
+    }
+}       
     </style>
 </head>
 <body>
