@@ -251,17 +251,20 @@
             }
              /* スマホでのバナー画像拡大（推奨設定） */
     header + .container {
-        padding: 0 5px; /* 左右の余白を20px→10pxに縮小 */
-    }
+        padding: 0; /* 余白を完全削除 */
+}
     
     .banner-section {
-        margin: 10px 0 20px; /* 上下の余白調整 */
+        margin: 5px 0 15px; /* 上下の余白調整 */
     }
     
     .banner-full {
-        border-radius: 10px; /* 角丸を適度に維持 */
+        border-radius: 8px; /* 角丸を適度に維持 */
     }
-
+    /* 横スクロール防止 */
+    html, body {
+    overflow-x: hidden;
+    }
             .main-content {
                 padding: 15px;
                 gap: 20px;
