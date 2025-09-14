@@ -360,7 +360,23 @@
         max-width: none !important;
         border-radius: 10px !important;
     }
-}       
+}  
+        /* 新しいバナーコンテナ */
+.banner-container-mobile {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* PC用 */
+}
+
+@media (max-width: 768px) {
+    .banner-container-mobile {
+        padding: 0 5px; /* スマホで大幅縮小 */
+    }
+    
+    .banner-section {
+        margin: 10px 0 20px;
+    }
+}
     </style>
 </head>
 <body>
@@ -398,7 +414,7 @@
     </header>
 
     <!-- バナー -->
-    <div class="container">
+    <div class="banner-container-mobile">
         <section class="banner-section">
             <a href="#consult" class="hero-link" aria-label="無料個別相談会に申し込む">
                 <img src="個別相談バナー.png" 
