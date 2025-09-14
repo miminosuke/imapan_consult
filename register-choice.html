@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個別相談お申し込み | Maison do Imabayashi~ふんわり米粉パン教室～</title>
+    <title>個別相談お申し込み | 今林美恵子パン教室</title>
     <style>
         * {
             margin: 0;
@@ -24,6 +24,7 @@
             padding: 0 20px;
         }
 
+        /* ヘッダー */
         .header {
             background: linear-gradient(135deg, #f5f2e9 0%, #e8e4d9 100%);
             padding: 15px 0;
@@ -109,7 +110,7 @@
             color: #8b7355;
         }
 
-        /* LINE友だち追加ボタン（新デザイン） */
+        /* LINE友だち追加ボタン（ヘッダー用） */
         .line-add-btn {
             transition: transform 0.2s ease;
         }
@@ -118,6 +119,7 @@
             transform: translateY(-1px);
         }
 
+        /* バナー */
         .banner-section {
             text-align: center;
             margin: 20px 0 32px;
@@ -141,6 +143,7 @@
             height: auto;
         }
 
+        /* メインコンテンツ */
         .main-content {
             max-width: 800px;
             margin: 0 auto;
@@ -156,33 +159,13 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .content-card h3 {
-            color: #6b5b47;
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .content-card p {
-            color: #8b7355;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .micro-info {
-            font-size: 0.9rem;
-            color: #999;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-embed {
+        /* フォーム関連（PC・スマホ用分離） */
+        .form-embed-pc {
             display: block;
         }
 
-        .form-link {
+        .form-embed-sp {
             display: none;
-            text-align: center;
         }
 
         iframe {
@@ -192,25 +175,39 @@
             border-radius: 10px;
         }
 
+        /* LINEセクション（大幅コンパクト化） */
         .line-section {
             background: #00C300;
             color: white;
             text-align: center;
+            max-width: 320px; /* QRコード幅に合わせて大幅縮小 */
+            margin: 0 auto; /* 中央配置 */
+            padding: 25px 20px; /* パディング調整 */
+        }
+
+        .line-section h3 {
+            color: white;
+            font-size: 1.3rem; /* サイズ縮小 */
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .line-section p {
+            color: white;
+            font-size: 0.9rem; /* サイズ縮小 */
+            text-align: center;
+            margin-bottom: 15px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 28px;
-            border-radius: 50px;
+            padding: 10px 22px; /* ボタンサイズ縮小 */
+            border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary {
-            background: #8b7355;
-            color: white;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
         }
 
         .btn-line {
@@ -223,18 +220,26 @@
         }
 
         .line-qr img {
-            width: 180px;
-            height: 180px;
-            border-radius: 10px;
+            width: 140px; /* QRコードサイズ縮小 */
+            height: 140px;
+            border-radius: 8px;
             background: white;
-            padding: 8px;
-            margin-top: 15px;
+            padding: 6px;
+            margin-top: 12px;
         }
 
         #consult {
             scroll-margin-top: 90px;
         }
 
+        /* フォームタイトル重複回避 */
+        #consult > h3,
+        #consult > p,
+        #consult .micro-info {
+            display: none;
+        }
+
+        /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .header-title {
                 font-size: 1.2rem;
@@ -243,14 +248,6 @@
             .nav-menu,
             .line-add-btn {
                 display: none;
-            }
-
-            .form-embed {
-                display: none;
-            }
-
-            .form-link {
-                display: block;
             }
 
             .main-content {
@@ -262,8 +259,38 @@
                 padding: 25px 20px;
             }
 
+            /* スマホでの表示順序制御 */
+            #consult {
+                order: -1; /* フォームを最優先表示 */
+            }
+
+            .line-compact {
+                order: 0; /* LINEを後回し */
+            }
+
+            /* スマホ用フォーム切り替え */
+            .form-embed-pc {
+                display: none;
+            }
+
+            .form-embed-sp {
+                display: block;
+            }
+
+            .form-embed-sp iframe {
+                height: 80vh; /* スマホ画面の80%の高さ */
+                min-height: 600px; /* 最小高さ確保 */
+            }
+
+            /* スマホでのLINEセクション調整 */
             .line-section {
-                order: -1;
+                max-width: 280px; /* スマホでもコンパクトに */
+                padding: 20px 15px;
+            }
+
+            .line-qr img {
+                width: 120px;
+                height: 120px;
             }
         }
 
@@ -281,16 +308,10 @@
                 display: block;
             }
         }
-                /* フォームタイトル重複回避（後から削除可能） */
-        #consult > h3,
-        #consult > p,
-        #consult .micro-info {
-            display: none;
-        }
-
     </style>
 </head>
 <body>
+    <!-- ヘッダー -->
     <header class="header">
         <div class="container">
             <div class="header-content">
@@ -300,7 +321,7 @@
                              onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';">
                     </div>
                     <div class="logo-fallback" style="display: none;">🥐</div>
-                    <h1 class="header-title">Maison do Imabayashi~ふんわり米粉パン教室～</h1>
+                    <h1 class="header-title">今林美恵子パン教室</h1>
                 </div>
                 <div class="header-right">
                     <nav>
@@ -312,7 +333,6 @@
                             <li><a href="#contact">お問い合わせ</a></li>
                         </ul>
                     </nav>
-                    <!-- LINE友だち追加ボタン（新デザイン） -->
                     <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=header&utm_campaign=line_consult" 
                        class="line-add-btn" target="_blank" rel="noopener noreferrer">
                         <img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" 
@@ -324,46 +344,53 @@
         </div>
     </header>
 
+    <!-- バナー -->
     <div class="container">
         <section class="banner-section">
             <a href="#consult" class="hero-link" aria-label="無料個別相談会に申し込む">
-                <img src="変更後悦相談バナー.png" 
+                <img src="個別相談バナー.png" 
                      alt="グルテンフリー×天然酵母米粉パン 40代からの好きを仕事に 毎月限定5名様 無料個別相談会" 
                      class="banner-full" loading="eager">
             </a>
         </section>
     </div>
 
+    <!-- メインコンテンツ -->
     <main class="main-content">
+        <!-- フォームセクション（PC・スマホ両方で埋め込み表示） -->
         <section id="consult" class="content-card">
-    <!-- PC：埋め込みフォーム表示 -->
-    <div class="form-embed">
-        <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true&utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_pc"
-            loading="lazy" title="個別相談フォーム">
-            読み込んでいます…
-        </iframe>
-    </div>
-    
-    <!-- モバイル：フォームリンクボタン表示 -->
-    <div class="form-link">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_sp" 
-           class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            フォームを開く
-        </a>
-    </div>
-</section>
+            <!-- PC用埋め込みフォーム -->
+            <div class="form-embed-pc">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true&utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_pc"
+                    loading="lazy" title="個別相談フォーム（PC用）">
+                    読み込んでいます…
+                </iframe>
+            </div>
+            
+            <!-- スマホ用埋め込みフォーム -->
+            <div class="form-embed-sp">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdamSLHu6x2Ok4wUZZ9N422vG8jkD2Nz_txm1pKmlCwJHSNGA/viewform?embedded=true&utm_source=website&utm_medium=register_choice&utm_campaign=form_consult_sp"
+                    loading="lazy" title="個別相談フォーム（スマホ用）">
+                    読み込んでいます…
+                </iframe>
+            </div>
+        </section>
 
-        <section class="content-card line-section">
-            <h3>💬 LINEで相談する（おすすめ）</h3>
-            <p>メッセージでのやり取りがスムーズです。QRコードから追加できます。</p>
-            <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_consult" 
-               class="btn btn-line" target="_blank" rel="noopener noreferrer">
-                LINEを開く
-            </a>
-            <div class="line-qr">
-                <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
-                     alt="LINE公式アカウントQRコード">
+        <!-- LINEセクション（大幅コンパクト化） -->
+        <section class="content-card line-compact">
+            <div class="line-section">
+                <h3>💬 LINEで相談する</h3>
+                <p>お急ぎの方はこちらからも</p>
+                <a href="https://lin.ee/kz9Mt1S?utm_source=website&utm_medium=register_choice&utm_campaign=line_consult" 
+                   class="btn btn-line" target="_blank" rel="noopener noreferrer">
+                    LINEを開く
+                </a>
+                <div class="line-qr">
+                    <img src="https://qr-official.line.me/gs/M_175nyzpi_GW.png?oat_content=qr" 
+                         alt="LINE公式アカウントQRコード">
+                </div>
             </div>
         </section>
     </main>
